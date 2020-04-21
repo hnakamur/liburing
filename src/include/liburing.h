@@ -365,6 +365,7 @@ static inline void io_uring_cq_advance(struct io_uring *ring,
  * Tell the kernel the cqe has been processed by the application.
  * Must be called after io_uring_{peek,wait}_cqe() after the cqe has
  * been processed by the application.
+ *
  * @param[in,out] ring      an io_uring queue.
  * @param[in]     cqe       a completion queue entry.
  */
@@ -381,6 +382,7 @@ static inline void io_uring_cqe_seen(struct io_uring *ring,
 /**
  * Set a user data to a sq entry.
  * The user data can be retrieved with io_uring_cqe_get_data when completed.
+ *
  * @param[in,out] sqe        a submission queue entry.
  * @param[in]     data       a user data.
  */
@@ -391,6 +393,7 @@ static inline void io_uring_sqe_set_data(struct io_uring_sqe *sqe, void *data)
 
 /** 
  * Get user data from a cq entry which was set wth io_uring_sqe_set_data.
+ *
  * @param[in]     cqe        a completion queue entry.
  * @return the user data which was set wth io_uring_sqe_set_data.
  */
@@ -401,6 +404,7 @@ static inline void *io_uring_cqe_get_data(const struct io_uring_cqe *cqe)
 
 /**
  * Set flags to a sq entry.
+ *
  * @param[in,out] sqe        a submission queue entry.
  * @param[in]     flags      flags to set.
  */
@@ -412,12 +416,13 @@ static inline void io_uring_sqe_set_flags(struct io_uring_sqe *sqe,
 
 /**
  * A helper function to prepare a read or write for a sq entry.
+ *
  * @param[in]     op         an opcode.
  * @param[in,out] sqe        a submission queue entry.
- * @param[in]     fd         a file descriptor.
- * @param[in]     addr       an address.
- * @param[in]     len        a length.
- * @param[in]     offset     an offset.
+ * @param[in]     fd         a file descriptor. used for other value in some operations.
+ * @param[in]     addr       an address. used for other value in some operations.
+ * @param[in]     len        a length. used for other value in some operations.
+ * @param[in]     offset     an offset. used for other value in some operations.
  */
 static inline void io_uring_prep_rw(int op, struct io_uring_sqe *sqe, int fd,
 				    const void *addr, unsigned len,
@@ -437,13 +442,19 @@ static inline void io_uring_prep_rw(int op, struct io_uring_sqe *sqe, int fd,
 
 /**
  * Prepare a splice operation for a sq entry.
+ * See [io_splice_prep] and [io_splice] for processing this operation in the kernel.
+ *
  * @param[in,out] sqe           a submission queue entry.
- * @param[in]     fd_in         a file descriptor for an input.
- * @param[in]     off_in        an offset in the input.
- * @param[in]     fd_out        a file descriptor for an output.
- * @param[in]     off_out       an offset in the output.
- * @param[in]     nbytes        a number of bytes.
- * @param[in]     splice_flags  flags for splice.
+ * @param[in]     fd_in         a file descriptor for an input. will be used to set @b file_in in [struct io_splice].
+ * @param[in]     off_in        an offset in the input. will be set to @b off_in in [struct io_splice].
+ * @param[in]     fd_out        a file descriptor for an output. will be used to set @b file_out in [struct io_splice].
+ * @param[in]     off_out       an offset in the output. will be set to @b off_out in [struct io_splice].
+ * @param[in]     nbytes        a number of bytes. will be set to @b len in [struct io_splice].
+ * @param[in]     splice_flags  flags for splice. will be set to @b flags in [struct io_splice].
+ *
+ * [io_splice_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2729
+ * [io_splice]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2768
+ * [struct io_splice]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L456
  */
 static inline void io_uring_prep_splice(struct io_uring_sqe *sqe,
 					int fd_in, loff_t off_in,
@@ -459,11 +470,17 @@ static inline void io_uring_prep_splice(struct io_uring_sqe *sqe,
 
 /**
  * Prepare a readv operation for a sq entry.
+ * See [IORING_OP_READV], [io_read_prep], and [io_read] for processing this operation in the kernel.
+ *
  * @param[in,out] sqe        a submission queue entry.
  * @param[in]     fd         a file descriptor for an input.
  * @param[in]     iovecs     a fixed set of iovec buffers.
  * @param[in]     nr_iovecs  a number of iovec buffers.
  * @param[in]     offset     an offset in the input.
+ *
+ * [IORING_OP_READV]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_READV
+ * [io_read_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2519
+ * [io_read]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2549
  */
 static inline void io_uring_prep_readv(struct io_uring_sqe *sqe, int fd,
 				       const struct iovec *iovecs,
@@ -474,12 +491,18 @@ static inline void io_uring_prep_readv(struct io_uring_sqe *sqe, int fd,
 
 /**
  * Prepare a read operation using a fixed buffer for a sq entry.
+ * See [IORING_OP_READ_FIXED], [io_read_prep], and [io_read] for processing this operation in the kernel.
+ *
  * @param[in,out] sqe        a submission queue entry.
  * @param[in]     fd         a file descriptor for an input.
  * @param[out]    buf        a buffer which the read result will be written to.
  * @param[in]     nbytes     the maximum number of bytes to read.
  * @param[in]     offset     an offset in the input.
  * @param[in]     buf_index  the index of the fixed buffer to use.
+ *
+ * [IORING_OP_READ_FIXED]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_READ_FIXED
+ * [io_read_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2519
+ * [io_read]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2549
  */
 static inline void io_uring_prep_read_fixed(struct io_uring_sqe *sqe, int fd,
 					    void *buf, unsigned nbytes,
@@ -491,11 +514,17 @@ static inline void io_uring_prep_read_fixed(struct io_uring_sqe *sqe, int fd,
 
 /**
  * Prepare a writev operation for a sq entry.
+ * See [IORING_OP_WRITEV], [io_write_prep], and [io_write] for processing this operation in the kernel.
+ *
  * @param[in,out] sqe        a submission queue entry.
  * @param[in]     fd         a file descriptor for an output.
  * @param[in]     iovecs     a fixed set of iovec buffers.
  * @param[in]     nr_iovecs  a number of iovec buffers.
  * @param[in]     offset     an offset in the output.
+ *
+ * [IORING_OP_WRITEV]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_WRITEV
+ * [io_write_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2608
+ * [io_write]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2640
  */
 static inline void io_uring_prep_writev(struct io_uring_sqe *sqe, int fd,
 					const struct iovec *iovecs,
@@ -506,12 +535,18 @@ static inline void io_uring_prep_writev(struct io_uring_sqe *sqe, int fd,
 
 /**
  * Prepare a write operation using a fixed buffer for a sq entry.
+ * See [IORING_OP_WRITE_FIXED], [io_write_prep], and [io_write] for processing this operation in the kernel.
+ *
  * @param[in,out] sqe        a submission queue entry.
  * @param[in]     fd         a file descriptor for an output.
  * @param[out]    buf        a source buffer.
  * @param[in]     nbytes     the number of bytes to write.
  * @param[in]     offset     an offset in the output.
  * @param[in]     buf_index  the index of the fixed buffer to use.
+ *
+ * [IORING_OP_WRITE_FIXED]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_WRITE_FIXED
+ * [io_write_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2608
+ * [io_write]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2640
  */
 static inline void io_uring_prep_write_fixed(struct io_uring_sqe *sqe, int fd,
 					     const void *buf, unsigned nbytes,
@@ -753,11 +788,17 @@ static inline void io_uring_prep_close(struct io_uring_sqe *sqe, int fd)
 
 /**
  * Prepare a read operation for a sq entry.
+ * See [IORING_OP_READ], [io_read_prep], and [io_read] for processing this operation in the kernel.
+ *
  * @param[in,out] sqe        a submission queue entry.
  * @param[in]     fd         a file descriptor to read from.
  * @param[out]    buf        a buffer which the read result will be written to.
  * @param[in]     nbytes     the maximum number of bytes to read.
- * @param[in]     offset     an offset in the input. TODO: really?
+ * @param[in]     offset     an offset in the file.
+ *
+ * [IORING_OP_READ]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_READ
+ * [io_read_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2519
+ * [io_read]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2549
  */
 static inline void io_uring_prep_read(struct io_uring_sqe *sqe, int fd,
 				      void *buf, unsigned nbytes, off_t offset)
@@ -767,11 +808,17 @@ static inline void io_uring_prep_read(struct io_uring_sqe *sqe, int fd,
 
 /**
  * Prepare a write operation for a sq entry.
+ * See [IORING_OP_WRITE], [io_write_prep], and [io_write] for processing this operation in the kernel.
+ *
  * @param[in,out] sqe        a submission queue entry.
  * @param[in]     fd         a file descriptor to write to.
  * @param[out]    buf        a buffer for the content to write.
  * @param[in]     nbytes     the number of bytes to write.
- * @param[in]     offset     an offset in the input. TODO: really?
+ * @param[in]     offset     an offset in the file.
+ *
+ * [IORING_OP_WRITE]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_WRITE
+ * [io_write_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2608
+ * [io_write]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2640
  */
 static inline void io_uring_prep_write(struct io_uring_sqe *sqe, int fd,
 				       const void *buf, unsigned nbytes, off_t offset)
@@ -889,14 +936,23 @@ static inline void io_uring_prep_epoll_ctl(struct io_uring_sqe *sqe, int epfd,
 	io_uring_prep_rw(IORING_OP_EPOLL_CTL, sqe, epfd, ev, op, fd);
 }
 
+/*
+ * @example test/read-write.c
+ * @example test/send_recvmsg.c
+ */
 /**
  * Prepare a provide_buffers operation for a sq entry.
+ * See [io_provide_buffers](https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L3168) for processing this operation in the kernel.
  * @param[in,out] sqe        a submission queue entry.
- * @param[in]     addr       an address. TODO: for what?
- * @param[in]     len        a length. TODO: of what?
- * @param[in]     nr         a number. TODO: of what?
- * @param[in]     bgid       a group id for the buffer? TODO: what is this?
- * @param[in]     bid        a user id for the buffer? TODO: what is this?
+ * @param[in]     addr       an address. will be set to @b addr in struct [io_provide_buf] at [io_provide_buffers_prep].
+ * @param[in]     len        a length. will be set to @b len in struct [io_provide_buf] at [io_provide_buffers_prep].
+ * @param[in]     nr         a number of buffers. will be set to @b nbufs in struct [io_provide_buf] at [io_provide_buffers_prep].
+ * @param[in]     bgid       TODO: what is this? .will be set to @b bgid in struct [io_provide_buf] at [io_provide_buffers_prep].
+ * @param[in]     bid        a buffer id. will be set to @bid in struct [io_provide_buf] at [io_provide_buffers_prep], then to @bid in struct [io_buffer] at [io_add_buffers].
+ * [io_provide_buf]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L465
+ * [io_provide_buffers_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L3114
+ * [io_buffer]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L208
+ * [io_add_buffers]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L3141
  */
 static inline void io_uring_prep_provide_buffers(struct io_uring_sqe *sqe,
 						 void *addr, int len, int nr,
@@ -908,9 +964,12 @@ static inline void io_uring_prep_provide_buffers(struct io_uring_sqe *sqe,
 
 /**
  * Prepare a remove_buffers operation for a sq entry.
+ * See [io_remove_buffers](https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L3090) for processing this operation in the kernel.
  * @param[in,out] sqe        a submission queue entry.
- * @param[in]     nr         a number. TODO: of what?
- * @param[in]     bgid       a group id for the buffer? TODO: what is this?
+ * @param[in]     nr         a number of buffers. will be set to @b nbufs in struct [io_provide_buf] at [io_remove_buffers_prep].
+ * @param[in]     bgid       TODO: what is this? will be set to @b bgid in struct [io_provide_buf] at [io_remove_buffers_prep].
+ * [io_provide_buf]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L465
+ * [io_remove_buffers_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L3045
  */
 static inline void io_uring_prep_remove_buffers(struct io_uring_sqe *sqe,
 						int nr, int bgid)
