@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['del_5fpolls',['del_polls',['../poll-cancel-ton_8c.html#a9f78d9fc4c6bea266c2e51e696335b9d',1,'poll-cancel-ton.c']]],
+  ['do_5fcopy',['do_copy',['../madvise_8c.html#ae2837a1ec089f56055ec031f1200205f',1,'madvise.c']]],
+  ['do_5ffadvise',['do_fadvise',['../fadvise_8c.html#a6f603fb0f437fdfa4beebcc23b77b73a',1,'fadvise.c']]],
+  ['do_5ffd_5ftest',['do_fd_test',['../poll-v-poll_8c.html#a95b88c00d6ff5f0a564147ab6786f8c8',1,'poll-v-poll.c']]],
+  ['do_5fio',['do_io',['../io-cancel_8c.html#abaec1595f785fba37a949ae5706e3860',1,'io-cancel.c']]],
+  ['do_5fmadvise',['do_madvise',['../madvise_8c.html#a4dbdc7376a3f3b0c9d2e594b4040166d',1,'madvise.c']]],
+  ['do_5fpipe_5fpollin_5ftest',['do_pipe_pollin_test',['../poll-v-poll_8c.html#a7981f7edd51d9355c275e5efb6f5cc9d',1,'poll-v-poll.c']]],
+  ['do_5fpipe_5fpollout_5ftest',['do_pipe_pollout_test',['../poll-v-poll_8c.html#ad624c0892b844adf03d2a3b1ea810064',1,'poll-v-poll.c']]],
+  ['do_5fread',['do_read',['../fadvise_8c.html#a3c06e337f6d0c1c8b915732c043007ab',1,'fadvise.c']]],
+  ['do_5frecv',['do_recv',['../send__recv_8c.html#a9147e87b44c312f81e2d73b4966cf1ed',1,'send_recv.c']]],
+  ['do_5frecvmsg',['do_recvmsg',['../send__recvmsg_8c.html#a9c6016e9180b7148ada10ddc7edb3e83',1,'send_recvmsg.c']]],
+  ['do_5fsend',['do_send',['../send__recv_8c.html#afdc955d5b2326817d11742b48d68ad5e',1,'send_recv.c']]],
+  ['do_5fsendmsg',['do_sendmsg',['../send__recvmsg_8c.html#a2bdb14d1f14f117de4583cba565ce6f1',1,'send_recvmsg.c']]],
+  ['do_5ftest_5fepoll',['do_test_epoll',['../poll-v-poll_8c.html#a12e3ac3baa918e62c7575ae6ef7a4f99',1,'poll-v-poll.c']]],
+  ['do_5ftest_5fsq_5fpoll_5fkthread_5fstopped',['do_test_sq_poll_kthread_stopped',['../sq-poll-kthread_8c.html#a9cff53914d136c031bae5269ee124849',1,'sq-poll-kthread.c']]],
+  ['do_5fwrite',['do_write',['../lfs-openat-write_8c.html#a17138f4a842f9793f60147aa60cf67ed',1,'lfs-openat-write.c']]],
+  ['dump_5fresv',['dump_resv',['../io__uring__setup_8c.html#a523042058ea48173cd35c89b37138e92',1,'io_uring_setup.c']]],
+  ['dump_5fsqe',['dump_sqe',['../io__uring__register_8c.html#ad345098c05e54948ef000617ac8d941f',1,'io_uring_register.c']]]
+];

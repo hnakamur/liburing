@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['r',['r',['../35fa71a030ca-test_8c.html#afbb4faaf90dfb47fba9f3a66de8ab9ce',1,'r():&#160;35fa71a030ca-test.c'],['../a0908ae19763-test_8c.html#afbb4faaf90dfb47fba9f3a66de8ab9ce',1,'r():&#160;a0908ae19763-test.c'],['../fc2a85cb02ef-test_8c.html#a80587d25e1507beeb8e45f8ed8891178',1,'r():&#160;fc2a85cb02ef-test.c']]],
+  ['rcv_5fready',['rcv_ready',['../232c93d07b74-test_8c.html#a7f4cc4f55780d83529dc63a53f7ee719',1,'232c93d07b74-test.c']]],
+  ['read',['read',['../structio__data.html#ac2503afac4ad344a61a6f68316b3a924',1,'io_data']]],
+  ['ready',['ready',['../structthread__t.html#a64142891a32f86c7ee3683f203e83aa9',1,'thread_t']]],
+  ['recv_5fthread_5fdone',['recv_thread_done',['../accept-link_8c.html#a66b1b9fb986bca119628dfc8d9dbef19',1,'recv_thread_done():&#160;accept-link.c'],['../poll-link_8c.html#a66b1b9fb986bca119628dfc8d9dbef19',1,'recv_thread_done():&#160;poll-link.c']]],
+  ['recv_5fthread_5fready',['recv_thread_ready',['../accept-link_8c.html#a6631318cea4e5d438c98483a8b3eb4d8',1,'recv_thread_ready():&#160;accept-link.c'],['../poll-link_8c.html#a6631318cea4e5d438c98483a8b3eb4d8',1,'recv_thread_ready():&#160;poll-link.c']]],
+  ['res',['res',['../structio__uring__cqe.html#adaac31b8e29aed568936439ccf95568f',1,'io_uring_cqe']]],
+  ['resolve',['resolve',['../structopen__how.html#a41478a78096aa4175c19201c61566dc2',1,'open_how']]],
+  ['resv',['resv',['../structio__cqring__offsets.html#a68671228189d3840b64fd5c08c65e01d',1,'io_cqring_offsets::resv()'],['../structio__uring__params.html#a0bd64511bcfde530965b48dbc935efa7',1,'io_uring_params::resv()'],['../structio__uring__files__update.html#ab2f630db53301352229ed90be2ba34d5',1,'io_uring_files_update::resv()'],['../structio__uring__probe__op.html#ac94ab65de5199b856f2752654884ba93',1,'io_uring_probe_op::resv()'],['../structio__uring__probe.html#a54eeb2096260f23bce86a38706823b71',1,'io_uring_probe::resv()']]],
+  ['resv1',['resv1',['../structio__sqring__offsets.html#ae443f1d2fb373505126d6b30dc6095eb',1,'io_sqring_offsets']]],
+  ['resv2',['resv2',['../structio__sqring__offsets.html#adabe423980a9ca9feb498faf3b9b866e',1,'io_sqring_offsets::resv2()'],['../structio__uring__probe__op.html#a35be386fc8625cf949a7d0746f82b670',1,'io_uring_probe_op::resv2()'],['../structio__uring__probe.html#a899525303715715682a809776dd65600',1,'io_uring_probe::resv2()']]],
+  ['ring',['ring',['../structasync__context.html#a1b22569b9d64059b534747d8fe8c42f8',1,'async_context::ring()'],['../structforktestmem.html#aabd33566126faa693b84f3ecdb8a2c6d',1,'forktestmem::ring()'],['../structtest__context.html#a01c264ddf483a9ae3438c8da337581ea',1,'test_context::ring()'],['../structthread__data.html#aa351e3da2e552d53fd3b9bdbdc65c7dd',1,'thread_data::ring()'],['../submit-reuse_8c.html#aaaf11a4ee6850136ea838493ccd3d56f',1,'ring():&#160;submit-reuse.c']]],
+  ['ring_5fentries',['ring_entries',['../structio__sqring__offsets.html#a2c34e0fe653e8332579b912fd85a5087',1,'io_sqring_offsets::ring_entries()'],['../structio__cqring__offsets.html#a862af5f84d708bb8582d0490752f0d8a',1,'io_cqring_offsets::ring_entries()']]],
+  ['ring_5ffd',['ring_fd',['../structio__uring.html#af85655ffe95f9c47477999e3eb8d0cc9',1,'io_uring']]],
+  ['ring_5fmask',['ring_mask',['../structio__sqring__offsets.html#a36a5f0dbe6bb147b9ab4dbdbaf3a7c89',1,'io_sqring_offsets::ring_mask()'],['../structio__cqring__offsets.html#a279549ea3220160b2c2c000794c7f98f',1,'io_cqring_offsets::ring_mask()']]],
+  ['ring_5fptr',['ring_ptr',['../structio__uring__sq.html#a917c4c595b6872b1888d4206b8c55cf4',1,'io_uring_sq::ring_ptr()'],['../structio__uring__cq.html#a2f5befa27ff1d815b9fadd94b3089475',1,'io_uring_cq::ring_ptr()']]],
+  ['ring_5fsz',['ring_sz',['../structio__uring__sq.html#aa466c02c1f748ada021c656fe39f295e',1,'io_uring_sq::ring_sz()'],['../structio__uring__cq.html#a643d2459ed8de8aeae3cbe3d046fe3f1',1,'io_uring_cq::ring_sz()']]],
+  ['rsize',['RSIZE',['../lfs-openat-write_8c.html#aef824dfa599f1d4e040b8512e67153ad',1,'RSIZE():&#160;lfs-openat-write.c'],['../lfs-openat_8c.html#aef824dfa599f1d4e040b8512e67153ad',1,'RSIZE():&#160;lfs-openat.c']]],
+  ['running',['running',['../35fa71a030ca-test_8c.html#a2f45113638a0b749a8a205d2cd7fb42b',1,'35fa71a030ca-test.c']]],
+  ['rw_5fflags',['rw_flags',['../structio__uring__sqe.html#ac41cf8253086c00f63ebc13d688c24ce',1,'io_uring_sqe']]]
+];

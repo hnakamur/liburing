@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['splice_5ffd_5fin',['splice_fd_in',['../structio__uring__sqe.html#aff6fefd171bbd7464f29bdcbb43b22b9',1,'io_uring_sqe']]],
+  ['splice_5fflags',['splice_flags',['../structio__uring__sqe.html#a64fe22f22544733b67e38857f33a8442',1,'io_uring_sqe']]],
+  ['splice_5foff_5fin',['splice_off_in',['../structio__uring__sqe.html#a09d4fb0b1ae76e8d7722d21b7aa2e9c9',1,'io_uring_sqe']]],
+  ['sq',['sq',['../structio__uring.html#a99eaf246bdf783d23e5bc35a8ae20300',1,'io_uring']]],
+  ['sq_5fentries',['sq_entries',['../structio__uring__params.html#a074ed4adb15bbacd6015b5a7e8dce50e',1,'io_uring_params']]],
+  ['sq_5foff',['sq_off',['../structio__uring__params.html#a91c72d0c6052a3b10374d68deaf441e5',1,'io_uring_params']]],
+  ['sq_5fthread_5fcpu',['sq_thread_cpu',['../structio__uring__params.html#a58d239bd5f27782abac4486a9ccb40c6',1,'io_uring_params']]],
+  ['sq_5fthread_5fidle',['sq_thread_idle',['../structio__uring__params.html#aa4affdb6aab72919e9edecbec25e77bc',1,'io_uring_params']]],
+  ['sqe_5fhead',['sqe_head',['../structio__uring__sq.html#a566f6f879355270061f8d63207ebe9e8',1,'io_uring_sq']]],
+  ['sqe_5findex',['sqe_index',['../poll-cancel-ton_8c.html#a23ca3d41bbfe568e290ed27a1969b740',1,'poll-cancel-ton.c']]],
+  ['sqe_5ftail',['sqe_tail',['../structio__uring__sq.html#ab55cdba32f1f80e718871d09d0442a4d',1,'io_uring_sq']]],
+  ['sqes',['sqes',['../structio__uring__sq.html#a91005e4028d96fc14a647bfeb86db0cd',1,'io_uring_sq::sqes()'],['../structtest__context.html#a64bb6ddc03ad1d10fae9aa4d063f3b84',1,'test_context::sqes()']]],
+  ['stack_5fbuf',['stack_buf',['../structasync__context.html#a277b1b065da6d94bd7e1a56048cedd96',1,'async_context']]],
+  ['state',['state',['../structevent__t.html#a191d94d0412ef93412253aa72ec7c220',1,'event_t']]],
+  ['statx_5fflags',['statx_flags',['../structio__uring__sqe.html#a6f40f70baf16811e7a2834ad71d7c0da',1,'io_uring_sqe']]],
+  ['stop',['stop',['../structdata.html#acd3cbd40538a7457ceee52d5d0fd091f',1,'data']]],
+  ['str',['str',['../send__recv_8c.html#a53dbc2382caf520f4a511f07d1e77a71',1,'str():&#160;send_recv.c'],['../send__recvmsg_8c.html#a53dbc2382caf520f4a511f07d1e77a71',1,'str():&#160;send_recvmsg.c']]],
+  ['str1',['str1',['../submit-reuse_8c.html#ac035e9bb08ae988d8b99ae681d19290e',1,'submit-reuse.c']]],
+  ['str2',['str2',['../submit-reuse_8c.html#a6bf6069f79f8fc33ccd458bfb16f895e',1,'submit-reuse.c']]],
+  ['sync_5frange_5fflags',['sync_range_flags',['../structio__uring__sqe.html#afd9aeb9f035413cb15d25d653163477d',1,'io_uring_sqe']]]
+];

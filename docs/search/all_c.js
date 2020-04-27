@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['fadvise_2ec',['fadvise.c',['../fadvise_8c.html',1,'']]],
+  ['fadvise_5fadvice',['fadvise_advice',['../structio__uring__sqe.html#ac1e8f0e249acdefbe136974dfa240fb4',1,'io_uring_sqe']]],
+  ['fallocate_2ec',['fallocate.c',['../fallocate_8c.html',1,'']]],
+  ['fc2a85cb02ef_2dtest_2ec',['fc2a85cb02ef-test.c',['../fc2a85cb02ef-test_8c.html',1,'']]],
+  ['fd',['fd',['../structio__uring__sqe.html#a8bb8f67a1d8d65214776b807feffbff3',1,'io_uring_sqe::fd()'],['../structp.html#ac4fe5992931410a411246bc333c8d0ae',1,'p::fd()'],['../structthread__data.html#ad3284aebd48d8ad583ed5a1b856cb247',1,'thread_data::fd()']]],
+  ['fd1',['fd1',['../structthread__data.html#a015ef9118c873cae9e79c17cdff473a1',1,'thread_data']]],
+  ['fd2',['fd2',['../structthread__data.html#a2c7cb781024d58125d4216b3b37b4d59',1,'thread_data']]],
+  ['fds',['fds',['../structio__uring__files__update.html#a17b47734c8e430790c4b4f00e3bcad23',1,'io_uring_files_update']]],
+  ['features',['features',['../structio__uring__params.html#ae940d76e85675f6d2ba62c32caeafb54',1,'io_uring_params']]],
+  ['features_5fstring',['features_string',['../io__uring__setup_8c.html#ac664388dd92b0de2ee52e3b400b1a694',1,'io_uring_setup.c']]],
+  ['file_2dregister_2ec',['file-register.c',['../file-register_8c.html',1,'']]],
+  ['file_2dupdate_2ec',['file-update.c',['../file-update_8c.html',1,'']]],
+  ['file_5fsize',['FILE_SIZE',['../cq-overflow_8c.html#af3c3df6c9906ede8f09fa2af74cb28d5',1,'FILE_SIZE():&#160;cq-overflow.c'],['../fadvise_8c.html#af3c3df6c9906ede8f09fa2af74cb28d5',1,'FILE_SIZE():&#160;fadvise.c'],['../io-cancel_8c.html#af3c3df6c9906ede8f09fa2af74cb28d5',1,'FILE_SIZE():&#160;io-cancel.c'],['../madvise_8c.html#af3c3df6c9906ede8f09fa2af74cb28d5',1,'FILE_SIZE():&#160;madvise.c'],['../read-write_8c.html#af3c3df6c9906ede8f09fa2af74cb28d5',1,'FILE_SIZE():&#160;read-write.c'],['../short-read_8c.html#af3c3df6c9906ede8f09fa2af74cb28d5',1,'FILE_SIZE():&#160;short-read.c'],['../submit-reuse_8c.html#af3c3df6c9906ede8f09fa2af74cb28d5',1,'FILE_SIZE():&#160;submit-reuse.c']]],
+  ['first_5flen',['first_len',['../structio__data.html#aaa34ee79ccca8a923bb1413f9bf62ec6',1,'io_data']]],
+  ['first_5foffset',['first_offset',['../structio__data.html#af4cb559d88585aad960e03dae95b7588',1,'io_data']]],
+  ['fixed_2dlink_2ec',['fixed-link.c',['../fixed-link_8c.html',1,'']]],
+  ['flags',['flags',['../structopen__how.html#a217d6f7e598d155df99fa6efa1fae09f',1,'open_how::flags()'],['../structio__uring__sqe.html#a0a11108c417cb20e4c954c54512da174',1,'io_uring_sqe::flags()'],['../structio__uring__cqe.html#af94d4b5f5c49f0d4d6b59d531f139cc6',1,'io_uring_cqe::flags()'],['../structio__sqring__offsets.html#a1e375bc2f1b596d8a205a98cbadc4956',1,'io_sqring_offsets::flags()'],['../structio__uring__params.html#a190514329b68413ad0c7b5fda03960aa',1,'io_uring_params::flags()'],['../structio__uring__probe__op.html#a301d426dbf07b8acf9be093f2922e8a2',1,'io_uring_probe_op::flags()'],['../structio__uring.html#ac92364a0c9893c8a707f025f5d21c0cd',1,'io_uring::flags()']]],
+  ['flags_5fstring',['flags_string',['../io__uring__setup_8c.html#ae6be201cbbff9b5aa671247f750c8e83',1,'io_uring_setup.c']]],
+  ['flusher',['flusher',['../submit-reuse_8c.html#a35cef07adc9696e367ab1c714bc191f2',1,'submit-reuse.c']]],
+  ['fname',['FNAME',['../personality_8c.html#afd7feb39acd312085566c208e35c2362',1,'personality.c']]],
+  ['forktestmem',['forktestmem',['../structforktestmem.html',1,'']]],
+  ['free_5fcontext',['free_context',['../defer_8c.html#ab3bda86fbca048a8df0b07456a0a11cb',1,'defer.c']]],
+  ['fsync_2ec',['fsync.c',['../fsync_8c.html',1,'']]],
+  ['fsync_5fflags',['fsync_flags',['../structio__uring__sqe.html#a877c2e8541f459586795c65f7f7e2934',1,'io_uring_sqe']]]
+];

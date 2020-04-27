@@ -1,0 +1,4 @@
+<map id="io_uring_params" name="io_uring_params">
+<area shape="rect" id="node2" href="$structio__cqring__offsets.html" title="io_cqring_offsets" alt="" coords="5,5,127,32"/>
+<area shape="rect" id="node3" href="$structio__sqring__offsets.html" title="io_sqring_offsets" alt="" coords="151,5,272,32"/>
+</map>

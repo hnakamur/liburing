@@ -1,0 +1,7 @@
+<map id="thread_data" name="thread_data">
+<area shape="rect" id="node2" href="$structio__uring.html" title="io_uring" alt="" coords="77,184,143,211"/>
+<area shape="rect" id="node3" href="$structio__uring__sq.html" title="io_uring_sq" alt="" coords="11,95,99,121"/>
+<area shape="rect" id="node4" href="$structio__uring__sqe.html" title="io_uring_sqe" alt="" coords="5,5,100,32"/>
+<area shape="rect" id="node5" href="$structio__uring__cq.html" title="io_uring_cq" alt="" coords="126,95,214,121"/>
+<area shape="rect" id="node6" href="$structio__uring__cqe.html" title="io_uring_cqe" alt="" coords="124,5,219,32"/>
+</map>

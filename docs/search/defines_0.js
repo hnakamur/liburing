@@ -1,0 +1,9 @@
+var searchData=
+[
+  ['_5f_5fio_5furing_5fget_5fsqe',['__io_uring_get_sqe',['../queue_8c.html#a9b1cf0da6d89c80dcb81d40562f0d594',1,'queue.c']]],
+  ['_5f_5fnr_5fio_5furing_5fenter',['__NR_io_uring_enter',['../syscall_8c.html#ae52073af74bcb306f54116fd110c31de',1,'syscall.c']]],
+  ['_5f_5fnr_5fio_5furing_5fregister',['__NR_io_uring_register',['../syscall_8c.html#a9d663d1f6d974b61901b8d8760b30263',1,'__NR_io_uring_register():&#160;syscall.c'],['../35fa71a030ca-test_8c.html#a9d663d1f6d974b61901b8d8760b30263',1,'__NR_io_uring_register():&#160;35fa71a030ca-test.c'],['../a0908ae19763-test_8c.html#a9d663d1f6d974b61901b8d8760b30263',1,'__NR_io_uring_register():&#160;a0908ae19763-test.c'],['../fc2a85cb02ef-test_8c.html#a9d663d1f6d974b61901b8d8760b30263',1,'__NR_io_uring_register():&#160;fc2a85cb02ef-test.c']]],
+  ['_5f_5fnr_5fio_5furing_5fsetup',['__NR_io_uring_setup',['../syscall_8c.html#ae6ad1846920d3a6a545e382d25e8f64f',1,'__NR_io_uring_setup():&#160;syscall.c'],['../35fa71a030ca-test_8c.html#ae6ad1846920d3a6a545e382d25e8f64f',1,'__NR_io_uring_setup():&#160;35fa71a030ca-test.c'],['../917257daa0fe-test_8c.html#ae6ad1846920d3a6a545e382d25e8f64f',1,'__NR_io_uring_setup():&#160;917257daa0fe-test.c'],['../a0908ae19763-test_8c.html#ae6ad1846920d3a6a545e382d25e8f64f',1,'__NR_io_uring_setup():&#160;a0908ae19763-test.c'],['../a4c0b3decb33-test_8c.html#ae6ad1846920d3a6a545e382d25e8f64f',1,'__NR_io_uring_setup():&#160;a4c0b3decb33-test.c'],['../b19062a56726-test_8c.html#ae6ad1846920d3a6a545e382d25e8f64f',1,'__NR_io_uring_setup():&#160;b19062a56726-test.c'],['../fc2a85cb02ef-test_8c.html#ae6ad1846920d3a6a545e382d25e8f64f',1,'__NR_io_uring_setup():&#160;fc2a85cb02ef-test.c']]],
+  ['_5f_5fnr_5fmmap',['__NR_mmap',['../35fa71a030ca-test_8c.html#ad806cb011a1c36a9b82351465b5c5649',1,'35fa71a030ca-test.c']]],
+  ['_5fposix_5fc_5fsource',['_POSIX_C_SOURCE',['../ucontext-cp_8c.html#a3024ccd4a9af5109d24e6c57565d74a1',1,'ucontext-cp.c']]]
+];
