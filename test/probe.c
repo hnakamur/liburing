@@ -62,6 +62,7 @@ static int test_probe_helper(struct io_uring *ring)
 
 static int test_probe(struct io_uring *ring)
 {
+/*! [Registering a probe] */
 	struct io_uring_probe *p;
 	size_t len;
 	int ret;
@@ -91,6 +92,7 @@ static int test_probe(struct io_uring *ring)
 		fprintf(stdout, "Probe returned %d\n", ret);
 		goto err;
 	}
+/*! [Registering a probe] */
 
 	if (verify_probe(p, 1))
 		goto err;

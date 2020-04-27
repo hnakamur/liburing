@@ -339,6 +339,7 @@ static int has_nonvec_read(void)
 		exit(ret);
 	}
 
+/*! [Registering a probe] */
 	p = calloc(1, sizeof(*p) + 256 * sizeof(struct io_uring_probe_op));
 	ret = io_uring_register_probe(&ring, p, 256);
 	/* if we don't have PROBE_REGISTER, we don't have OP_READ/WRITE */
@@ -350,6 +351,7 @@ out:
 		fprintf(stderr, "register_probe: %d\n", ret);
 		goto out;
 	}
+/*! [Registering a probe] */
 
 	if (p->ops_len <= IORING_OP_READ)
 		goto out;
@@ -484,11 +486,13 @@ static int test_buf_select(const char *filename, int nonvec)
 	for (i = 0; i < BUFFERS; i++)
 		memset(vecs[i].iov_base, 0x55, vecs[i].iov_len);
 
+/*! [Preparing to provide buffers] */
 	for (i = 0; i < BUFFERS; i++) {
 		sqe = io_uring_get_sqe(&ring);
 		io_uring_prep_provide_buffers(sqe, vecs[i].iov_base,
 						vecs[i].iov_len, 1, 1, i);
 	}
+/*! [Preparing to provide buffers] */
 
 	ret = io_uring_submit(&ring);
 	if (ret != BUFFERS) {

@@ -53,6 +53,7 @@ static int recv_prep(struct io_uring *ring, struct iovec *iov, int bgid)
 		goto err;
 	}
 
+/*! [Preparing a recvmsg] */
 	memset(&msg, 0, sizeof(msg));
         msg.msg_namelen = sizeof(struct sockaddr_in);
 	msg.msg_iov = iov;
@@ -66,6 +67,7 @@ static int recv_prep(struct io_uring *ring, struct iovec *iov, int bgid)
 		sqe->flags |= IOSQE_BUFFER_SELECT;
 		sqe->buf_group = bgid;
 	}
+/*! [Preparing a recvmsg] */
 
 	ret = io_uring_submit(ring);
 	if (ret <= 0) {
@@ -208,6 +210,7 @@ static int do_sendmsg(void)
 		return 1;
 	}
 
+/*! [Preparing a sendmsg] */
 	memset(&saddr, 0, sizeof(saddr));
 	saddr.sin_family = AF_INET;
 	saddr.sin_port = htons(PORT);
@@ -227,6 +230,7 @@ static int do_sendmsg(void)
 
 	sqe = io_uring_get_sqe(&ring);
 	io_uring_prep_sendmsg(sqe, sockfd, &msg, 0);
+/*! [Preparing a sendmsg] */
 
 	ret = io_uring_submit(&ring);
 	if (ret <= 0) {

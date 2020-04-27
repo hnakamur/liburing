@@ -270,6 +270,8 @@ extern int io_uring_register_files_update(struct io_uring *ring, unsigned off,
  * @param[in,out] ring      an io_uring queue.
  * @param[in]     fd        an event file descriptor.
  * @return 0 on success, -errno on failure.
+ *
+ * @b Examples: test/eventfd-ring.c test/eventfd.c
  */
 extern int io_uring_register_eventfd(struct io_uring *ring, int fd);
 /**
@@ -291,25 +293,46 @@ extern int io_uring_unregister_eventfd(struct io_uring *ring);
  * Register probes.
  * 
  * @param[in,out] ring      an io_uring queue.
- * @param[in]     p         an array of probes. TODO: Confirm this.
+ * @param[out]    p         an array of probes.
  * @param[in]     nr        the size of the array of probes.
  * @return 0 on success, -errno on failure.
+ *
+ * @b Examples: test/read-write.c test/probe.c
+ * @snippet test/read-write.c Registering a probe
+ *
+ * Definition at line [126](register_8c_source.html#l00126) of file [register.c](register_8c_source.html).
  */
 extern int io_uring_register_probe(struct io_uring *ring,
 					struct io_uring_probe *p, unsigned nr);
 /**
- * Register personality. TODO: Figure out what is personality.
+ * Register personality.
+ *
+ * See [IORING_REGISTER_PERSONALITY] and [register_personality] for processing this operation in the kernel.
  *
  * @param[in,out] ring      an io_uring queue.
- * @return 0 on success, -errno on failure.
+ * @return credential id on success, -errno on failure.
+ *
+ * @b Example: test/personality.c
+ * @snippet test/personality.c Registering a personality
+ *
+ * [IORING_REGISTER_PERSONALITY]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_REGISTER_PERSONALITY
+ * [register_personality]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L7948
  */
 extern int io_uring_register_personality(struct io_uring *ring);
 /**
  * Unregister personality.
  *
+ * See [IORING_UNREGISTER_PERSONALITY] and [io_unregister_personality] for processing this operation in the kernel.
+ *
  * @param[in,out] ring      an io_uring queue.
- * @param[in]     fd        a file descriptor. TODO: for what?
+ * @param[in]     id        the credential id to unregister.
  * @return 0 on success, -errno on failure.
+ *
+ * @b Example: test/personality.c
+ * @snippet test/personality.c Unregistering a personality
+ *
+ * [IORING_UNREGISTER_PERSONALITY]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_UNREGISTER_PERSONALITY
+ * [io_unregister_personality]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L7960
  */
 extern int io_uring_unregister_personality(struct io_uring *ring, int id);
 
@@ -442,6 +465,7 @@ static inline void io_uring_prep_rw(int op, struct io_uring_sqe *sqe, int fd,
 
 /**
  * Prepare a splice operation for a sq entry.
+ *
  * See [IORING_OP_SPLICE], [io_splice_prep], and [io_splice] for processing this operation in the kernel.
  *
  * @param[in,out] sqe           a submission queue entry.
@@ -451,6 +475,9 @@ static inline void io_uring_prep_rw(int op, struct io_uring_sqe *sqe, int fd,
  * @param[in]     off_out       an offset in the output. will be set to @b off_out in [struct io_splice].
  * @param[in]     nbytes        a number of bytes. will be set to @b len in [struct io_splice].
  * @param[in]     splice_flags  flags for splice. will be set to @b flags in [struct io_splice].
+ *
+ * @b Examples: test/splice.c
+ * @snippet test/splice.c Preparing splices
  *
  * [IORING_OP_SPLICE]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_SPLICE
  * [io_splice_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L2729
@@ -585,6 +612,9 @@ static inline void io_uring_prep_write_fixed(struct io_uring_sqe *sqe, int fd,
  * @param[in,out] msg        a message. will be set to @b msg in [struct io_sr_msg].
  * @param[in]     flags      flags. will be set to @b msg_flags in [struct io_sr_msg].
  *
+ * @b Example: test/send_recvmsg.c
+ * @snippet test/send_recvmsg.c Preparing a recvmsg
+ *
  * [IORING_OP_RECVMSG]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_RECVMSG
  * [io_recvmsg_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L3775
  * [io_recvmsg]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L3804
@@ -605,6 +635,9 @@ static inline void io_uring_prep_recvmsg(struct io_uring_sqe *sqe, int fd,
  * @param[in]     fd         a file descriptor for the socket to send to. will be used to set @b file in [struct io_sr_msg].
  * @param[in,out] msg        a message. will be set to @b msg in [struct io_sr_msg].
  * @param[in]     flags      flags. will be set to @b msg_flags in [struct io_sr_msg].
+ *
+ * @b Example: test/send_recvmsg.c
+ * @snippet test/send_recvmsg.c Preparing a recvmsg
  *
  * [IORING_OP_SENDMSG]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_SENDMSG
  * [io_sendmsg_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L403
@@ -712,6 +745,9 @@ static inline void io_uring_prep_nop(struct io_uring_sqe *sqe)
  *                             absolute timestamp.
  *                             will be used to set @b mode in [struct io_timeout_data].
  *
+ * @b Examples: test/timeout.c
+ * @snippet test/timeout.c Preparing timeouts
+ *
  * [IORING_OP_TIMEOUT]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_TIMEOUT
  * [io_timeout_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L4672
  * [io_timeout]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L4709
@@ -738,6 +774,9 @@ static inline void io_uring_prep_timeout(struct io_uring_sqe *sqe,
  *                             [struct io_timeout_data]
  * @param[in]     flags        flags. must be zero. will be set to @b flats in
  *                             [struct io_timeout_data]
+ *
+ * @b Examples: test/timeout.c
+ * @snippet test/timeout.c Preparing removing a timeout
  *
  * [IORING_OP_TIMEOUT_REMOVE]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_TIMEOUT_REMOVE
  * [io_timeout_remove_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L4635
@@ -998,8 +1037,12 @@ struct statx;
  * @param[in]     mask       a mask. will be set to @b mask in [struct open_how].
  * @param[in]     statxbuf   a buffer. will be set to @b buffer in [struct io_open].
  *
+ * @b Example: test/statx.c
+ * @snippet test/statx.c Preparing a statx
+ *
  * [IORING_OP_STATX]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_STATX
  * [io_statx_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L3317
+ * [io_statx]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L3350
  * [struct io_open]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L415
  * [struct open_how]: https://elixir.bootlin.com/linux/v5.7-rc2/source/include/uapi/linux/openat2.h#L19
  */
@@ -1163,6 +1206,9 @@ static inline void io_uring_prep_epoll_ctl(struct io_uring_sqe *sqe, int epfd,
  * @param[in]     nr         a number of buffers. will be set to @b nbufs in struct [io_provide_buf].
  * @param[in]     bgid       a buffer group id. will be set to @b bgid in struct [io_provide_buf].
  * @param[in]     bid        a buffer id. will be set to @b bid in struct [io_provide_buf].
+ *
+ * @b Example: test/read-write.c
+ * @snippet test/read-write.c Preparing to provide buffers
  *
  * [IORING_OP_PROVIDE_BUFFERS]: https://elixir.bootlin.com/linux/v5.7-rc2/ident/IORING_OP_PROVIDE_BUFFERS
  * [io_provide_buffers_prep]: https://elixir.bootlin.com/linux/v5.7-rc2/source/fs/io_uring.c#L3114

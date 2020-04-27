@@ -57,7 +57,9 @@ static int test_statx(struct io_uring *ring, const char *path)
 		fprintf(stderr, "get sqe failed\n");
 		goto err;
 	}
+/*! [Preparing a statx] */
 	io_uring_prep_statx(sqe, -1, path, 0, STATX_ALL, &x1);
+/*! [Preparing a statx] */
 
 	ret = io_uring_submit(ring);
 	if (ret <= 0) {

@@ -21,6 +21,7 @@ static int copy_single(struct io_uring *ring,
 	struct io_uring_sqe *sqe;
 	int i, ret = -1;
 
+/*! [Preparing splices] */
 	sqe = io_uring_get_sqe(ring);
 	if (!sqe) {
 		fprintf(stderr, "get sqe failed\n");
@@ -37,6 +38,7 @@ static int copy_single(struct io_uring *ring,
 	}
 	io_uring_prep_splice(sqe, pipe_fds[0], -1, fd_out, off_out,
 			     len, flags2);
+/*! [Preparing splices] */
 
 	ret = io_uring_submit(ring);
 	if (ret < 2) {

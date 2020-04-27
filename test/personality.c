@@ -62,6 +62,7 @@ static int test_personality(struct io_uring *ring)
 {
 	int ret, cred_id;
 
+/*! [Registering a personality] */
 	ret = io_uring_register_personality(ring);
 	if (ret < 0) {
 		if (ret == -EINVAL) {
@@ -73,6 +74,7 @@ static int test_personality(struct io_uring *ring)
 		goto err;
 	}
 	cred_id = ret;
+/*! [Registering a personality] */
 
 	/* create file only owner can open */
 	ret = open(FNAME, O_RDONLY | O_CREAT, 0600);
@@ -119,11 +121,13 @@ static int test_personality(struct io_uring *ring)
 	if (seteuid(0))
 		perror("seteuid");
 
+/*! [Unregistering a personality] */
 	ret = io_uring_unregister_personality(ring, cred_id);
 	if (ret) {
 		fprintf(stderr, "register_personality: %d\n", ret);
 		goto err;
 	}
+/*! [Unregistering a personality] */
 
 out:
 	unlink(FNAME);

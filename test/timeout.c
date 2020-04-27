@@ -128,12 +128,14 @@ static int test_single_timeout_nr(struct io_uring *ring)
 	msec_to_ts(&ts, TIMEOUT_MSEC);
 	io_uring_prep_timeout(sqe, &ts, 2, 0);
 
+/*! [Preparing timeouts] */
 	sqe = io_uring_get_sqe(ring);
 	io_uring_prep_nop(sqe);
 	io_uring_sqe_set_data(sqe, (void *) 1);
 	sqe = io_uring_get_sqe(ring);
 	io_uring_prep_nop(sqe);
 	io_uring_sqe_set_data(sqe, (void *) 1);
+/*! [Preparing timeouts] */
 
 	ret = io_uring_submit_and_wait(ring, 3);
 	if (ret <= 0) {
@@ -367,6 +369,7 @@ static int test_single_timeout_remove(struct io_uring *ring)
 		goto err;
 	}
 
+/*! [Preparing removing a timeout] */
 	msec_to_ts(&ts, TIMEOUT_MSEC);
 	io_uring_prep_timeout(sqe, &ts, 0, 0);
 	sqe->user_data = 1;
@@ -384,6 +387,7 @@ static int test_single_timeout_remove(struct io_uring *ring)
 	}
 
 	io_uring_prep_timeout_remove(sqe, 1, 0);
+/*! [Preparing removing a timeout] */
 	sqe->user_data = 2;
 
 	ret = io_uring_submit(ring);
